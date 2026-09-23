@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
+import AddtoPlanButton from '../components/exercisesDetails/AddtoPlanButton';
+import SavedforLaterButton from '../components/exercisesDetails/SavedforLaterButton';
 
 const getExercise = async (id) => {
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
@@ -43,7 +45,7 @@ const ExerciseDetailsPage = async ({ params }) => {
 
   return (
     <div className="bg-black min-h-screen px-6 py-10">
-      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <Image
           src={image}
           alt={name}
@@ -100,12 +102,8 @@ const ExerciseDetailsPage = async ({ params }) => {
           </ol>
 
           <div className="flex gap-3 mt-8">
-            <button className="bg-lime-400 text-black font-semibold text-sm px-5 py-3 rounded-lg">
-              Add to today&apos;s plan
-            </button>
-            <button className="border border-neutral-700 text-white font-semibold text-sm px-5 py-3 rounded-lg">
-              Save for later
-            </button>
+            <AddtoPlanButton exercise={exercise} />
+            <SavedforLaterButton exercise={exercise} />
           </div>
         </div>
       </div>
