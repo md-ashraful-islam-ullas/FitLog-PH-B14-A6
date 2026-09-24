@@ -10,7 +10,7 @@ const getExercises = async () => {
 const Exercises = async () => {
   const exercisesData = await getExercises();
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-4" id="library">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-white font-extrabold uppercase text-3xl md:text-4xl tracking-tight">
           The Library

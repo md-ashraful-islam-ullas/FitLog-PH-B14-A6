@@ -1,6 +1,7 @@
 "use client";
 
 import { ExerciseContext } from "@/context/ExerciseContext";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useContext } from "react";
@@ -20,21 +21,28 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-[#08090b] border-b border-[#1d1e21] px-4 sm:px-6 lg:px-10 py-4">
       <div className="max-w-300 mx-auto">
-
         {/* Top Row */}
         <div className="flex items-center justify-between">
-
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-white font-bold tracking-wide text-[16px]"
-          >
-            FITLOG
-          </Link>
+
+          <div className="flex items-center gap-4">
+            <Image
+              src="/logo.png"
+              alt="Workout illustration"
+              width={18}
+              height={18}
+              className="object-contain"
+            />
+            <Link
+              href="/"
+              className="text-white font-bold tracking-wide text-[16px]"
+            >
+              FITLOG
+            </Link>
+          </div>
 
           {/* Desktop / Tablet Middle */}
           <div className="hidden sm:flex items-center gap-3 md:gap-6 lg:gap-8 text-[14px]">
-
             {/* Workouts */}
             <Link
               href="/"
@@ -62,7 +70,6 @@ const Navbar = () => {
 
           {/* Right */}
           <div className="flex items-center gap-1 sm:gap-2 text-[13px] sm:text-[14px]">
-
             {/* Plan */}
             <Link
               href="/my-plan"
@@ -99,7 +106,6 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div className="flex sm:hidden items-center justify-center gap-2 mt-4 pt-3 border-t border-[#1d1e21]">
-
           {/* Workouts */}
           <Link
             href="/"
@@ -124,11 +130,9 @@ const Navbar = () => {
             My Plan
           </Link>
         </div>
-
       </div>
     </nav>
   );
 };
 
 export default Navbar;
-

@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import AddtoPlanButton from '../components/exercisesDetails/AddtoPlanButton';
 import SavedforLaterButton from '../components/exercisesDetails/SavedforLaterButton';
+import { notFound } from 'next/navigation';
 
 const getExercise = async (id) => {
   const res = await fetch(`https://api.abcz.workers.dev/api/fitlog/${id}`);
@@ -15,7 +16,7 @@ const ExerciseDetailsPage = async ({ params }) => {
   const exercise = await getExercise(id);
 
   if (!exercise) {
-    return <div className="text-white p-10">Exercise not found.</div>;
+    notFound()
   }
 
   const {

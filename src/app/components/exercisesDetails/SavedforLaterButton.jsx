@@ -1,5 +1,6 @@
 "use client";
 import { ExerciseContext } from "@/context/ExerciseContext";
+import Image from "next/image";
 import React, { useContext } from "react";
 import { Slide, toast } from "react-toastify";
 
@@ -36,10 +37,12 @@ const SavedforLaterButton = ({ exercise }) => {
   };
   return (
     <button
-      className="border border-neutral-700 text-white font-semibold text-sm px-5 py-3 rounded-lg cursor-pointer"
+      className="border border-neutral-700 text-white font-semibold text-sm px-5 py-3 rounded-lg cursor-pointer flex items-center gap-2"
       onClick={() => handleSaved()}
     >
-      Save for later
+      <Image src={'/save-instagram.png'} alt="save" height={20} width={20} className="brightness-0 invert" />
+
+      <p>Save for later</p>
     </button>
   );
 };

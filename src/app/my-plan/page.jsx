@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useContext, useState } from "react";
 import ListedExerciseCard from "../components/exercisesDetails/ListedExerciseCard";
 
+
 const ListedExercise = () => {
   const { plan, save, completed } = useContext(ExerciseContext);
 
@@ -142,7 +143,7 @@ const ListedExercise = () => {
               </p>
 
               <Link
-                href="/"
+                href="/#library"
                 className="inline-block mt-6 bg-lime-400 text-black font-semibold text-sm px-5 py-2.5 rounded-lg hover:bg-lime-300 transition-colors"
               >
                 {activeTab === "plan" ? "Browse Exercises" : "Find Exercises"}

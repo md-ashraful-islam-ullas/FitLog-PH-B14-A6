@@ -22,9 +22,9 @@ const Banner = () => {
               lock it into today&apos;s plan, and watch the week&apos;s work add up.
             </p>
 
-            <button className="mt-8 rounded-md bg-[#b6ff00] px-7 py-3.5 text-sm font-bold text-black transition hover:bg-[#c5ff33]">
+            <a href="#library" className="mt-8 inline-block rounded-md bg-[#b6ff00] px-7 py-3.5 text-sm font-bold text-black transition hover:bg-[#c5ff33]">
               BROWSE WORKOUTS
-            </button>
+            </a>
           </div>
 
           {/* Image */}

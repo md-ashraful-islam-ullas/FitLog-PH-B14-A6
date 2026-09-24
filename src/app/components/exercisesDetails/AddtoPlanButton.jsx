@@ -1,5 +1,6 @@
 "use client";
 import { ExerciseContext } from "@/context/ExerciseContext";
+import Image from "next/image";
 import React, { useContext } from "react";
 import { Slide, toast } from "react-toastify";
 
@@ -37,10 +38,12 @@ const AddtoPlanButton = ({ exercise }) => {
 
   return (
     <button
-      className="bg-lime-400 text-black font-semibold text-sm px-5 py-3 rounded-lg cursor-pointer"
+      className="bg-lime-400 text-black font-semibold text-sm px-5 py-3 rounded-lg cursor-pointer flex items-center gap-2"
       onClick={() => handlePlan()}
     >
-      Add to today&apos;s plan
+      <Image src={'/calendar.png'} alt="calender" height={24} width={24} />
+
+     <p>Add to today&apos;s plan</p>
     </button>
   );
 };
