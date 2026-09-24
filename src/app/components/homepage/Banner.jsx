@@ -29,15 +29,17 @@ const Banner = () => {
           </div>
 
           {/* Image */}
-          <div className="flex items-center justify-center px-6 pb-10 lg:px-6 lg:pb-0">
-            <Image
-              src="/banner.png"
-              alt="Workout illustration"
-              width={500}
-              height={500}
-              priority
-              className="w-full max-w-107.5 h-auto object-contain"
-            />
+          <div className="relative flex min-h-75 items-center justify-center px-8 pb-10 lg:min-h-117.5 lg:px-6 lg:pb-0">
+            <div className="relative h-75 w-full max-w-107.5 sm:h-87.5 lg:h-100">
+              <Image
+                src="/banner.png"
+                alt="Workout illustration"
+                fill
+                priority
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 430px"
+                className="object-contain"
+              />
+            </div>
           </div>
         </div>
       </div>
