@@ -6,9 +6,10 @@ export const ExerciseContext = createContext([])
 const ExerciseProvider = ({children}) => {
     const [plan, setPlan] = useState([])
     const [save, setSave] = useState([])
+    const [completed, setCompleted] = useState([])
 
     const sharedData = {
-        plan, setPlan, save, setSave
+        plan, setPlan, save, setSave, completed, setCompleted
     }
     return (
         <ExerciseContext.Provider value={sharedData}>{children}</ExerciseContext.Provider>
