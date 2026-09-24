@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { ExerciseContext } from "@/context/ExerciseContext";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,10 @@ const ListedExercise = () => {
   });
 
   const totalMinutes = activeList.reduce((sum, ex) => sum + ex.duration, 0);
-  const totalCalories = activeList.reduce((sum, ex) => sum + ex.caloriesBurned, 0);
+  const totalCalories = activeList.reduce(
+    (sum, ex) => sum + ex.caloriesBurned,
+    0,
+  );
 
   return (
     <div className="bg-black min-h-screen px-6 py-10">
@@ -34,7 +37,9 @@ const ListedExercise = () => {
         <div className="bg-neutral-900 border border-neutral-800 rounded-xl grid grid-cols-3 divide-x divide-neutral-800 mb-8">
           <div className="px-6 py-5">
             <p className="text-neutral-400 text-sm mb-1">Exercises</p>
-            <p className="text-lime-400 font-extrabold text-2xl">{activeList.length}</p>
+            <p className="text-lime-400 font-extrabold text-2xl">
+              {activeList.length}
+            </p>
           </div>
           <div className="px-6 py-5">
             <p className="text-neutral-400 text-sm mb-1">Minutes</p>
@@ -42,7 +47,9 @@ const ListedExercise = () => {
           </div>
           <div className="px-6 py-5">
             <p className="text-neutral-400 text-sm mb-1">Calories</p>
-            <p className="text-white font-extrabold text-2xl">{totalCalories}</p>
+            <p className="text-white font-extrabold text-2xl">
+              {totalCalories}
+            </p>
           </div>
         </div>
 
@@ -52,7 +59,7 @@ const ListedExercise = () => {
               onClick={() => setActiveTab("plan")}
               className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors ${
                 activeTab === "plan"
-                  ? "bg-white text-black"
+                  ? " bg-[#263b05] text-[#a8e600]"
                   : "text-neutral-400 hover:text-white"
               }`}
             >
@@ -62,7 +69,7 @@ const ListedExercise = () => {
               onClick={() => setActiveTab("saved")}
               className={`px-4 py-2 rounded-md text-sm font-semibold transition-colors ${
                 activeTab === "saved"
-                  ? "bg-white text-black"
+                  ? "bg-[#263b05] text-[#a8e600]"
                   : "text-neutral-400 hover:text-white"
               }`}
             >
@@ -119,23 +126,34 @@ const ListedExercise = () => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Link
-                  href={`/${exercise.id}`}
-                  className="border border-neutral-700 text-white font-semibold text-sm px-4 py-2 rounded-lg"
-                >
-                  View Details
-                </Link>
-                <button
-                  onClick={() => {
-                    // wire this to whatever ExerciseContext method
-                    // marks an item done / removes it from `plan`
-                  }}
-                  className="bg-lime-400 text-black font-semibold text-sm px-4 py-2 rounded-lg"
-                >
-                  Mark as Done
-                </button>
-              </div>
+              {activeTab === "plan" ? (
+                <div className="flex items-center gap-3">
+                  <Link
+                    href={`/${exercise.id}`}
+                    className="border border-neutral-700 text-white font-semibold text-sm px-4 py-2 rounded-lg"
+                  >
+                    View Details
+                  </Link>
+                  <button
+                    onClick={() => {
+                      // wire this to whatever ExerciseContext method
+                      // marks an item done / removes it from `plan`
+                    }}
+                    className="bg-lime-400 text-black font-semibold text-sm px-4 py-2 rounded-lg"
+                  >
+                    Mark as Done
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <Link
+                    href={`/${exercise.id}`}
+                    className="border border-neutral-700 text-white font-semibold text-sm px-4 py-2 rounded-lg"
+                  >
+                    View Details
+                  </Link>
+                </div>
+              )}
             </div>
           ))}
         </div>
